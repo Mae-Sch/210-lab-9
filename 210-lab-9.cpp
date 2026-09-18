@@ -3,6 +3,7 @@
 #include <numeric>
 #include <fstream>
 #include <array>
+#include <iomanip>
 
 using namespace std;
 
@@ -28,7 +29,7 @@ int main() {
     // print array
     cout << "list Contents:";
     for (int i = 0; i < groceryList.size(); ++i) {
-        cout << (i+1) << ": " << groceryList.at(i) << " ";
+        cout << setw(5) << (i+1) << ": " << setw(20) << groceryList.at(i) << " ";
         if (i%3 == 0) // splits output into lines of 3 for readability
             cout << endl;
     }
