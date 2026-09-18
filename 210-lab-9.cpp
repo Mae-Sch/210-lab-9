@@ -1,5 +1,8 @@
 #include <iostream>
+#include <algorithm>
+#include <numeric>
 #include <fstream>
+#include <array>
 
 using namespace std;
 
@@ -10,7 +13,7 @@ int main() {
 
     // opens input file to read data
     ifstream inputFile("groceryList.txt");
-    string groceryList[MAXSIZE];
+    array<string, MAXSIZE> groceryList;
 
     // first line of file should be length of the list
     int fileLength;
@@ -20,10 +23,11 @@ int main() {
     // fills groceryList with file contents
     for (int i = 0; i < fileLength; ++i) {
         // collects grocery from line at stores it in the array
-        getline(inputFile, groceryList[i]);
+        getline(inputFile, groceryList.at(i));
         // testing cout
-        cout << i << ": " << groceryList[i] << endl;
+        cout << i << ": " << groceryList.at(i) << endl;
     }
+    inputFile.close(); //file is no longer in use
 
 
     return 0;
