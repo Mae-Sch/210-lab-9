@@ -15,6 +15,8 @@ int main() {
     // first line of file should be length of the list
     int fileLength;
     inputFile >> fileLength;
+    inputFile.ignore(); // ignores rest of line used for list length
+
     // fills groceryList with file contents
     for (int i = 0; i < fileLength; ++i) {
         // collects grocery from line at stores it in the array
