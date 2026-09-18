@@ -6,7 +6,7 @@ using namespace std;
 
 
 int main() {
-    const int MAXSIZE = 50
+    const int MAXSIZE = 50;
 
     // opens input file to read data
     ifstream inputFile("groceryList.txt");
@@ -16,8 +16,11 @@ int main() {
     int fileLength;
     inputFile >> fileLength;
     // fills groceryList with file contents
-    for (int i = 0; i < fileLength) {
-        
+    for (int i = 0; i < fileLength; ++i) {
+        // collects grocery from line at stores it in the array
+        getline(inputFile, groceryList[i]);
+        // testing cout
+        cout << i << ": " << groceryList[i] << endl;
     }
 
 
