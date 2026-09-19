@@ -48,13 +48,9 @@ int main() {
     cout << "Enter grocery to find: ";
     string toFind;
     cin >> toFind;
-    int foundIndex;
+    array<string, MAXSIZE>::iterator foundIndex;
     foundIndex = find(groceryList.begin(), groceryList.end(), toFind);
-    if (foundIndex != -1) {
-        cout << toFind << " is at element " << foundIndex << endl;
-    } else {
-        cout << toFind << " is not in the grocery list" << endl;
-    }
+    cout << toFind << " is at element " << (foundIndex - groceryList.begin() + 1) << endl;
 
     return 0;
 }
