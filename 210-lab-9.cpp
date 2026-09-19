@@ -27,13 +27,34 @@ int main() {
     inputFile.close(); //file is no longer in use
 
     // print array
-    cout << "list Contents:";
+    cout << "list Contents:\n";
+    for (int i = 0; i < groceryList.size(); ++i) {
+        cout << setw(5) << (i+1) << ": " << setw(20) << groceryList.at(i) << " ";
+        if (i%3 == 0) // splits output into lines of 3 for readability
+            cout << endl;
+    }
+    cout << endl << endl << endl;
+
+    sort(groceryList.begin(), groceryList.end());
+    cout << "sorted list Contents:";
     for (int i = 0; i < groceryList.size(); ++i) {
         cout << setw(5) << (i+1) << ": " << setw(20) << groceryList.at(i) << " ";
         if (i%3 == 0) // splits output into lines of 3 for readability
             cout << endl;
     }
     cout << endl;
+
+    // using find() to return index
+    cout << "Enter grocery to find: ";
+    string toFind;
+    cin >> toFind;
+    int foundIndex;
+    foundIndex = find(groceryList.begin(), groceryList.end(), toFind);
+    if (foundIndex != -1) {
+        cout << toFind << " is at element " << foundIndex << endl;
+    } else {
+        cout << toFind << " is not in the grocery list" << endl;
+    }
 
     return 0;
 }
